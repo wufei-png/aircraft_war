@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    height: 0;;
+}
+/* html,body,.app{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.app{
+    display: flex;
+    background-image: url('../img/背景.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 30%;
+    height: 90%;
+    border: 1px solid black;
+} */
+#main{
+    width: 400px;
+    height: 600px;
+    background-image: url('../img/背景.png');
+    margin: 30px auto;
+    position: relative;
+    overflow: hidden;
+    img{
+        width: 64px;
+        height: 64px;
+    }
+    #player{
+        width: 128px;
+        height: 128px;
+    }
+    #playerbt{
+        width: 14px;
+        height: 32px;
+        overflow: hidden;
+        background-position: 0px 0;
+    }
+    //计分板样式
+    #titleScore{
+        font-size: 18px;
+        width: 90px;
+        height: 90px;
+        div{
+            display: inline-block;
+            width: 90px;
+            height: 30px;
+        }
+    }
+    #stopgame{
+        width: 35px;
+        height: 35px;
+        border: 3px solid #333;
+        color: #333;
+        border-radius: 40px;
+        text-align: center;
+        line-height: 32px;
+        float: right;
+        margin-top: -80px;
+        margin-right: 10px;
+        cursor: pointer;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+#start{
+    display: block;
+    width: 400px;
+    height: 400px;
+    padding-top: 200px;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0,0,0,.6);
+    left: 50%;
+    margin-left: -200px;
+    top: 30px;
+    .startButton{
+        width: 150px;
+        height: 50px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, .6);
+        text-align: center;
+        line-height: 50px;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bolder;
+        margin: 0 auto;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}
+#stop{
+    width: 400px;
+    height: 400px;
+    padding-top: 200px;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0,0,0,.6);
+    left: 50%;
+    margin-left: -200px;
+    top: 30px;
+    display: none;
+    div .button{
+        width: 150px;
+        height: 50px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, .6);
+        text-align: center;
+        line-height: 50px;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bolder;
+        margin: 0 auto;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}
+#over{
+    width: 400px;
+    height: 400px;
+    padding-top: 200px;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0,0,0,.6);
+    left: 50%;
+    margin-left: -200px;
+    top: 30px;
+    display: none;
+    .overButton{
+        width: 150px;
+        height: 50px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, .6);
+        text-align: center;
+        line-height: 50px;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bolder;
+        margin: 0 auto;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}

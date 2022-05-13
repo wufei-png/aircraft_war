@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞机大战</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/index.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    
+    <div id="main">
+        
+        <div id="titleScore">
+            <div>杀敌:<span id="killNum">0</span></div>
+            <div>分数:<span id="killScore">0</span></div>
+        </div>
+        <div id="stopgame" onclick="mystopgame()"><img src="./img/暂停.png" alt=""></div>
+    </div>
+
+    <div id="start">
+        <div class="startButton" onclick="startGame()">开始游戏</div>
+    </div>
+    <div id="stop">
+        <div>
+            <div class="button" onclick="continuegame()">继续游戏</div>
+            <div class="button" onclick="newgame()">新的游戏</div>
+        </div>    
+    </div>
+    <div id="over">
+        <div class="overButton" onclick="newgame()">你被击毁</div>
+    </div>
+    <div id="tip">
+        <ul>
+            <li>方向键移动，空格射击</li>
+            <div>
+                <span><img src="./img/敌机爆炸.png"> 最高杀敌:</span><span id="enemy_num">0</span>
+                <!-- (js目前应该不可以对本地文件进行修改,因此读取的为固定值) -->
+            </div>
+            
+            <div>
+                <span><img src="./img/分数线.png"> 最高得分:</span><span id="score">0</span>
+            </div>
+            <li><img src="./img/防护.png"> 无敌！</li>
+            <li><img src="./img/加速.png"> 双倍子弹！</li>
+            <li><img src="./img/青蛙标志.png"> 小~~青蛙</li>
+        </ul>
+    </div>
+    <video src="./Sound/game_music.mp3" loop preload="auto" id="game_music"></video>
+</body>
+</html>
