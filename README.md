@@ -1,5 +1,7 @@
 # bytedance final 作业 飞机大战\_原生 js（杨健老师的游戏选项）
 
+- github pages https://wufei-png.github.io/aircraft_war/
+
 - 核心是使用 function 构建飞机道具等对象,游戏完成后查了下 canvas 的用法，发现要改成 canvas 要该很多代码,因此作罢，不过可以描述下：
 
   - canvas 关键用法在于 test.html 中的鼠标移动(onmouseup,计划使用鼠标来控制飞机), 以及 clearRect,drawImage 的使用来实现图像(飞机)的移动,只需要对一个 dom 对象(canvas)操作,确实会简便些。
