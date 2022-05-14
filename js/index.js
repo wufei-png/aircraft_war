@@ -94,38 +94,41 @@ var startGame_audio_pause=()=>{
             read_history();
             var start = document.getElementById('start');
             start.style.display = 'none';
-            planeMoveTimer = setInterval(PlaneMove,50);//道具移动
-            smallPlaneTimer = setInterval(createSmallPlane,1500);//创建小飞机
-            bigPlaneTimer = setInterval(createBigPlane,3000);//创建大飞机
-            // setTimeout(function(){
-            //     bigPlaneTimer = setInterval(createBigPlane,3000);
-            // },3000);
-            console.log('开始创建加速道具!');
-            speedTimer = setInterval(createDouble,5000);//创建double子弹
-            console.log('开始创建无敌道具!');
-            protectTimer = setInterval(createProtect,5000);;//创建无敌
-            console.log('开始创建frog道具!');
-            frogTimer = setInterval(createFrog,5000);//创建frog
-            // setTimeout ("change_big_flag",5000);//创建大飞机，开局5s后开始调用
-            // bigPlaneTimer_flag = setInterval(check_big_flag,500);//创建小飞机
-            ctrlPlayTimer = setInterval(ctrlPlay,30);//30毫秒监听一次 监听键盘按键
-            bulletMoveTimer = setInterval(bulletMove,10);//子弹的移动
-            crashCheckTimer = setInterval(crashCheck,10);//判断碰撞
+            start_game_timer();
             startGame_audio_play();
         }
         //暂停按钮
+
+var clear=()=>{
+    clearInterval(smallPlaneTimer);
+    clearInterval(bigPlaneTimer);
+    clearInterval(speedTimer);
+    clearInterval(protectTimer);
+    clearInterval(frogTimer);
+    clearInterval(planeMoveTimer);
+    clearInterval(ctrlPlayTimer);
+    clearInterval(bulletMoveTimer);
+    clearInterval(crashCheckTimer);
+}
+
+var start_game_timer=()=>{
+    planeMoveTimer = setInterval(PlaneMove,50);//道具移动
+    smallPlaneTimer = setInterval(createSmallPlane,1500);//创建小飞机
+    bigPlaneTimer = setInterval(createBigPlane,3000);//创建大飞机
+    console.log('开始创建加速道具!');
+    speedTimer = setInterval(createDouble,5000);//创建double子弹
+    console.log('开始创建无敌道具!');
+    protectTimer = setInterval(createProtect,5000);;//创建无敌
+    console.log('开始创建frog道具!');
+    frogTimer = setInterval(createFrog,5000);//创建frog
+    ctrlPlayTimer = setInterval(ctrlPlay,30);//30毫秒监听一次 监听键盘按键
+    bulletMoveTimer = setInterval(bulletMove,10);//子弹的移动
+    crashCheckTimer = setInterval(crashCheck,10);//判断碰撞
+}
         mystopgame = function (){
             var stop=document.getElementById("stop");
             stop.style.display="block";
-            clearInterval(smallPlaneTimer);
-            clearInterval(bigPlaneTimer);
-            clearInterval(speedTimer);
-            clearInterval(protectTimer);
-            clearInterval(frogTimer);
-            clearInterval(planeMoveTimer);
-            clearInterval(ctrlPlayTimer);
-            clearInterval(bulletMoveTimer);
-            clearInterval(crashCheckTimer);
+        clear();
             // var audio = document.getElementById("game_music");
             startGame_audio_pause();
         }
@@ -133,18 +136,7 @@ var startGame_audio_pause=()=>{
         continuegame = function(){
             var stop=document.getElementById("stop");
             stop.style.display="none";
-            planeMoveTimer = setInterval(PlaneMove,50);//道具移动
-            smallPlaneTimer = setInterval(createSmallPlane,1500);//创建小飞机
-            bigPlaneTimer = setInterval(createBigPlane,3000);//创建大飞机
-            console.log('开始创建加速道具!');
-            speedTimer = setInterval(createDouble,5000);//创建double子弹
-            console.log('开始创建无敌道具!');
-            protectTimer = setInterval(createProtect,5000);;//创建无敌
-            console.log('开始创建frog道具!');
-            frogTimer = setInterval(createFrog,5000);//创建frog
-            ctrlPlayTimer = setInterval(ctrlPlay,30);//30毫秒监听一次 监听键盘按键
-            bulletMoveTimer = setInterval(bulletMove,10);//子弹的移动
-            crashCheckTimer = setInterval(crashCheck,10);//判断碰撞
+            start_game_timer();
             startGame_audio_play();
         }
         //新的游戏or你被击毁
@@ -244,7 +236,7 @@ var startGame_audio_pause=()=>{
                 var frog = new PlaneProto("./img/青蛙标志.png",parseInt(Math.random()*(400-69)),-parseInt(Math.random()*140),parseInt(Math.random()*10)+1,2);
                 frog.imgNode.style.width='64px';
                 frog.imgNode.style.height='64px';
-                console.log('小飞机的size',frog.imgNode.width);
+                // console.log('小飞机的size',frog.imgNode.width);
                 frogArray.push(frog);
             }
             ,Math.random()*1000
@@ -513,7 +505,7 @@ var startGame_audio_pause=()=>{
                             bulletArray.splice(j,1);
                             if(blood>1){
                                 bigPlaneArray[i].imgNode.setAttribute('blood',String(blood-1));
-                                console.log('大飞机血量：',Number(bigPlaneArray[i].imgNode.getAttribute('blood')));
+                                // console.log('大飞机血量：',Number(bigPlaneArray[i].imgNode.getAttribute('blood')));
                                 if(blood==4||blood==3)
                                     bigPlaneArray[i].imgNode.src='./img/enemy2_down1.png';
                                 if(blood==2||blood==1)
@@ -608,7 +600,7 @@ var startGame_audio_pause=()=>{
                             }
                         }
                     }
-                                    for(var i=0;i<protectArray.length;i++){
+                for(var i=0;i<protectArray.length;i++){
                     for(var j=0;j<bulletArray.length;j++){
                         //子弹的左边
                         var btLeft = parseInt(bulletArray[j].imgNode.style.left);
@@ -712,15 +704,7 @@ var startGame_audio_pause=()=>{
             player.imgNode.playerIsDead = true;
             var over = document.getElementById('over');
             over.style.display = 'block';
-            clearInterval(smallPlaneTimer);
-            clearInterval(bigPlaneTimer);
-            clearInterval(speedTimer);
-            clearInterval(protectTimer);
-            clearInterval(frogTimer);
-            clearInterval(planeMoveTimer);
-            clearInterval(ctrlPlayTimer);
-            clearInterval(bulletMoveTimer);
-            clearInterval(crashCheckTimer);
+            clear();
         }
         function userCrash(){
             for(var i=0;i<smallPlaneArray.length;i++){
