@@ -4,7 +4,7 @@ window.onload = function(){
         默认敌机为 69*90
     */
     var mainObj=document.getElementById('main');
-    var smallPlaneArray = [];//小飞机数组
+    var smallPlaneArray = [];//小飞机数组 超出屏幕remove掉
     var bigPlaneArray = [];//大飞机数组
     var speedArray = [];//加速数组
     var protectArray = [];//无敌数组
